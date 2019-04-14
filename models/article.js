@@ -14,6 +14,14 @@ var ArticleSchema = new Schema({
   note: {
     type: Schema.Types.ObjectId,
     ref: "Note"
+  },
+  summary: {
+    type: String,
+    required: true
+  },
+  pictureLink: {
+    type: String,
+    required: false
   }
 });
 
