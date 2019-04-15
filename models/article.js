@@ -19,7 +19,7 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
-  pictureLink: {
+  image: {
     type: String,
     required: false
   }
