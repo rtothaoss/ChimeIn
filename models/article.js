@@ -22,6 +22,10 @@ var ArticleSchema = new Schema({
   image: {
     type: String,
     required: false
+  },
+  forDelete: {
+    type: Boolean,
+    default: true
   }
 });
 

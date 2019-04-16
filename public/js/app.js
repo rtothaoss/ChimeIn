@@ -1,6 +1,6 @@
 $(function () {
 
-  // Grab the articles as a json
+ 
   $.getJSON("/articles", function (data) {
     
     for (var i = 0; i < data.length; i++) {
@@ -27,6 +27,7 @@ $(function () {
   });
 
 
+  
 
   $(document).on('click','#cardNotes', function() {
 
@@ -75,6 +76,29 @@ $(function () {
   })
   });
  
+
+  $('#scrapeBtn').on('click', function(){
+    event.preventDefault();
+
+    $.ajax({
+      method: 'DELETE',
+      url: '/articles',
+      success: function(result) {
+        
+          console.log('deleted old data')
+      }
+  });
+
+    $.ajax({
+      method: 'GET',
+      url:'/scrape'
+    })
+    .then(function(data){
+      location.reload();
+      console.log('we made it down here')
+    })
+  })
+
 
 
   function bgChanger() {

@@ -12,7 +12,8 @@ body {
 }
 
 .intro {
-  height: 40vh;
+  margin-top: 5vh;
+  height: 25vh;
     /* display: flex; */
     justify-content: center;
     align-items: center;

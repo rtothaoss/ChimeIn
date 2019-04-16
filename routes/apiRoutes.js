@@ -85,5 +85,11 @@ module.exports = function (app) {
       })
   });
 
+  app.delete('/articles', function(req, res) {
+    db.Article.deleteMany({forDelete: true}).then(function(response){
+      console.log(response)
+    })
+  })
+
 
 }
