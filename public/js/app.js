@@ -1,29 +1,53 @@
 $(function () {
-
+  
  
   $.getJSON("/articles", function (data) {
+    var num = data.length;
+    console.log(num)
+    console.log(data)
     
-    for (var i = 0; i < data.length; i++) {
+  //   for (var i = 0; i < data.length; i++) {
 
-    var littleCards = `<div class='newCards' data-id=` + data[i]._id + ` style='margin: 10px 10px;'>
-    <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="`+ data[i].image + `" alt="Card image cap">
-    <div class="card-body">
-    <h5 class="card-title">` + data[i].title + `</h5>
-      <p class="card-text">`+ data[i].summary + `</p>
-      <div class='text-center'>
-      <a href="`+ data[i].link + `" class="btn">Checkout Article</a>
+  //   var littleCards = `<div class='newCards' data-id=` + data[i]._id + ` style='margin: 10px 10px;'>
+  //   <div class="card" style="width: 18rem;">
+  //   <img class="card-img-top" src="`+ data[i].image + `" alt="Card image cap">
+  //   <div class="card-body">
+  //   <h5 class="card-title">` + data[i].title + `</h5>
+  //     <p class="card-text">`+ data[i].summary + `</p>
+  //     <div class='text-center'>
+  //     <a href="`+ data[i].link + `" class="btn">Checkout Article</a>
+  //     </div>
+  //   </div>
+  //   <button style='border-style: none;background-color: white; margin-bottom: 10px; color: dodgerblue' data-id=` + data[i]._id + ` id='cardNotes' class="btn btn-primary">Notes</button>
+  //   </div>
+  // </div>
+  // </div>
+  // </div>`
+
+  //     $('#articles').append(littleCards)
+
+  //   }
+
+    data.slice().reverse().forEach(function(x) {
+      var littleCards = `<div class='newCards' data-id=` + x._id + ` style='margin: 10px 10px;'>
+      <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="`+ x.image + `" alt="Card image cap">
+      <div class="card-body">
+      <h5 class="card-title">` + x.title + `</h5>
+        <p class="card-text">`+ x.summary + `</p>
+        <div class='text-center'>
+        <a href="`+ x.link + `" class="btn">Checkout Article</a>
+        </div>
+      </div>
+      <button style='border-style: none;background-color: white; margin-bottom: 10px; color: dodgerblue' data-id=` + x._id + ` id='cardNotes' class="btn btn-primary">Notes</button>
       </div>
     </div>
-    <button style='border-style: none;background-color: white; margin-bottom: 10px; color: dodgerblue' data-id=` + data[i]._id + ` id='cardNotes' class="btn btn-primary">Notes</button>
     </div>
-  </div>
-  </div>
-  </div>`
+    </div>`
+  
+        $('#articles').append(littleCards)
+    })
 
-      $('#articles').append(littleCards)
-
-    }
   });
 
 
@@ -81,15 +105,6 @@ $(function () {
     event.preventDefault();
 
     $.ajax({
-      method: 'DELETE',
-      url: '/articles',
-      success: function(result) {
-        
-          console.log('deleted old data')
-      }
-  });
-
-    $.ajax({
       method: 'GET',
       url:'/scrape'
     })
@@ -97,6 +112,7 @@ $(function () {
       location.reload();
       console.log('we made it down here')
     })
+
   })
 
 
