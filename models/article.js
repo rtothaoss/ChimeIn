@@ -26,7 +26,7 @@ var ArticleSchema = new Schema({
   },
   image: {
     type: String,
-    required: false
+    required: true
   },
   forDelete: {
     type: Boolean,

@@ -2,9 +2,6 @@ $(function () {
   
  
   $.getJSON("/articles", function (data) {
-    var num = data.length;
-    console.log(num)
-    console.log(data)
     
   //   for (var i = 0; i < data.length; i++) {
 

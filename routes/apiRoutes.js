@@ -12,7 +12,7 @@ module.exports = function (app) {
       var $ = cheerio.load(response.data);
 
      
-      $(".card__content").each(function (i, element) {
+      $("div.card__content").slice(1).each(function (i, element) {
        
         var result = {};
 
@@ -35,6 +35,8 @@ module.exports = function (app) {
                       
     
         db.Article.create(result)
+        
+        
           .then(function (dbArticle) {
 
             console.log(dbArticle);
