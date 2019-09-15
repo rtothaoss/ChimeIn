@@ -1,7 +1,7 @@
 # Chime In
 *A webpage that scrapes huffington post and brings up new articles for the user to read and leave notes on.*
 
-![alt text](https://i.imgur.com/sqdLTyr.png 'chime in page')
+![alt text](https://media.giphy.com/media/cPJUNvDF4XOSDYfEWl/giphy.gif 'chime in page')
 
 Deployed Page: [here](https://sleepy-savannah-15776.herokuapp.com/)
 
